@@ -7,15 +7,11 @@ def index(request):
     return render(request, 'index.html')
 
 def contato(request):
-    form = ContatoForm(request.POST or none)
+    form = ContatoForm(request.POST or None)
 
     if str(request.method) == 'POST':
         if form.is_valid():
-            nome = form.cleaned_data['nome']
-            email = form.cleaned_data['email']
-            assunto = form.cleaned_data['assunto']
-            celular = form.cleaned_data['telefone']
-            mensagem = form.cleaned_data['mensagem']
+            form.send_mail()
 
             messages.success(request, 'E-mail envidado com sucesso')
             form = ContatoForm()
