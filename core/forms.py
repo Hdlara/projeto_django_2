@@ -4,7 +4,7 @@ from django.core.mail.message import EmailMessage
 class ContatoForm(forms.Form):
     nome = forms.CharField(label='nome', min_length=3, max_length=100)
     email = forms.EmailField(label='E-mail', min_length=6, max_length=100)
-    celular = forms.CharField(label='Celular', min_length=11, max_length=13)
+    celular = forms.CharField(label='Celular', min_length=8, max_length=13)
     assunto = forms.CharField(label='Assunto', min_length=5, max_length=120)
     mensagem = forms.CharField(label='Mensagem', widget=forms.Textarea())
 
